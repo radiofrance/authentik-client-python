@@ -1,0 +1,29 @@
+templateDir: /local/templates/
+additionalProperties:
+  packageName: authentik
+  packageUrl: https://goauthentik.io
+  projectName: authentik
+  generateSourceCodeOnly: True
+  hideGenerationTimestamp: False
+files:
+  gitignore.mustache:
+    templateType: SupportingFiles
+    destinationFilename: .gitignore
+  py.typed.mustache:
+    templateType: SupportingFiles
+    destinationFilename: py.typed
+  pyproject.mustache:
+    templateType: SupportingFiles
+    destinationFilename: pyproject.toml
+  README.mustache:
+    templateType: SupportingFiles
+    destinationFilename: README.md
+  requirements.mustache:
+    templateType: SupportingFiles
+    destinationFilename: requirements.txt
+  setup_cfg.mustache:
+    templateType: SupportingFiles
+    destinationFilename: setup.cfg
+  setup.mustache:
+    templateType: SupportingFiles
+    destinationFilename: setup.py
