@@ -32,7 +32,7 @@ class Group(BaseModel):
     name: constr(strict=True, max_length=80) = Field(...)
     is_superuser: Optional[StrictBool] = Field(None, description="Users added to this group will be superusers.")
     parent: Optional[StrictStr] = None
-    parent_name: StrictStr = Field(...)
+    parent_name: Optional[StrictStr] = Field(...)
     users: Optional[conlist(StrictInt)] = None
     attributes: Optional[Dict[str, Any]] = None
     users_obj: conlist(GroupMember) = Field(...)
@@ -77,6 +77,11 @@ class Group(BaseModel):
         # and __fields_set__ contains the field
         if self.parent is None and "parent" in self.__fields_set__:
             _dict['parent'] = None
+
+        # set to None if parent_name (nullable) is None
+        # and __fields_set__ contains the field
+        if self.parent_name is None and "parent_name" in self.__fields_set__:
+            _dict['parent_name'] = None
 
         return _dict
 

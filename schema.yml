@@ -30498,6 +30498,7 @@ components:
         parent_name:
           type: string
           readOnly: true
+          nullable: true
         users:
           type: array
           items:
@@ -40177,6 +40178,7 @@ components:
         parent_name:
           type: string
           readOnly: true
+          nullable: true
         attributes:
           type: object
           additionalProperties: {}

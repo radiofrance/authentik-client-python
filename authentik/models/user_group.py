@@ -31,7 +31,7 @@ class UserGroup(BaseModel):
     name: constr(strict=True, max_length=80) = Field(...)
     is_superuser: Optional[StrictBool] = Field(None, description="Users added to this group will be superusers.")
     parent: Optional[StrictStr] = None
-    parent_name: StrictStr = Field(...)
+    parent_name: Optional[StrictStr] = Field(...)
     attributes: Optional[Dict[str, Any]] = None
     __properties = ["pk", "num_pk", "name", "is_superuser", "parent", "parent_name", "attributes"]
 
@@ -66,6 +66,11 @@ class UserGroup(BaseModel):
         # and __fields_set__ contains the field
         if self.parent is None and "parent" in self.__fields_set__:
             _dict['parent'] = None
+
+        # set to None if parent_name (nullable) is None
+        # and __fields_set__ contains the field
+        if self.parent_name is None and "parent_name" in self.__fields_set__:
+            _dict['parent_name'] = None
 
         return _dict
 
